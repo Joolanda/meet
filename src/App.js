@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import { render } from '@testing-library/react';
+import EventList from './EventList';
 
 class App extends Component {
   render() {
     return (
       < div className="App">
-
+        <EventList />
       </div>
     );
   }
