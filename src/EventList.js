@@ -9,7 +9,7 @@ class EventList extends Component {
     return (
       <ul className="EventList"> 
       {this.state.events.map(event =>
-        <li>
+        <li key={event.id}>
           <Event event={event} />
         </li>)}
       </ul>
