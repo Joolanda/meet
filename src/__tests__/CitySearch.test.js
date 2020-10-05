@@ -1,6 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import CitySearch from '../CitySearch';
+import { extractLocations } from '../api';
+import { mockData } from '../mock-data';
+
+const locations = extractLocations(mockData);
 
 describe('<CitySearch /> component', () => {
 
@@ -26,9 +30,17 @@ describe('<CitySearch /> component', () => {
   test('render list of suggestions correctly', () => {
     const CitySearchWrapper = shallow(<CitySearch />);
     const suggestions = CitySearchWrapper.state('suggestions');
-    expect(CitySearchWrapper.find('sugggestions li')).toHaveLenght(suggestions.length);
+    expect(CitySearchWrapper.find('sugggestions li')).toHaveLength(suggestions.length);
     for (let i = 0; i > suggestions.length; i += 1) {
       expect(CitySearchWrapper.find('suggestions li').at(i).text()).toBe(suggestions[i].name_string);
     }  
-  });   
- });
+  });  
+  test('selecting a suggestion should change query state', () => {
+    const CitySearchWrapper = shallow(<CitySearch locations={locations}/>);
+    CitySearchWrapper.setState({
+      suggestions: locations,
+    });
+    CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
+    expect(CitySearchWrapper.state('query')).toBe('Berlin, Germany');
+  });
+});

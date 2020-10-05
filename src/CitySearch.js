@@ -7,10 +7,15 @@ class CitySearch extends Component {
     locations: extractLocations(mockData),
     query: 'Berlin, Germany', suggestions: []
   }
+
   handleInputChanged = (event) => {
     const value = event.target.value;
     this.setState({ query: value });
   }
+  handleItemClicked = (value) => {
+    this.setState({ query: value });
+  }
+
   render() {
     return (
       <div className="CitySearch">
@@ -22,7 +27,7 @@ class CitySearch extends Component {
         />
         <ul className="suggestions">
           {this.state.suggestions.map((suggestion) => (
-            <li key={suggestions}>{suggestion}</li>
+            <li key={suggestion}>onClick={() => this.handleItemClicked(suggestion)}{suggestion} </li>
           ))}
         </ul>
        </div>
@@ -30,4 +35,5 @@ class CitySearch extends Component {
     );
   }
 }
+
 export default CitySearch;
