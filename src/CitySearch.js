@@ -4,8 +4,9 @@ import { mockData } from './mock-data';
 
 class CitySearch extends Component {
   state = {
-    locations: extractLocations(mockData),
-    query: 'Berlin, Germany', suggestions: []
+    locations: this.props.location,
+    query: '', 
+    suggestions: []
   }
 
   handleInputChanged = (event) => {
