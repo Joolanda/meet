@@ -18,6 +18,7 @@ class CitySearch extends Component {
             onChange={this.handleInputChanged}
         />
         <ul className="suggestions">
+          
         </ul>
        </div>
 
