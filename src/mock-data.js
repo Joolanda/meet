@@ -14995,6 +14995,7 @@ const mockData = [
       reminders: {
         useDefault: true
       }
-    }
+    },
   ]
-}
+  },
+]

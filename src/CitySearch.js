@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { extractLocations } from './api';
+import { mockData } from './mock-data';
 
 class CitySearch extends Component {
   state = {
-    query: 'Munich', 
+    locations: extractLocations(mockData),
+    query: 'Berlin, Germany', suggestions: []
   }
   handleInputChanged = (event) => {
     const value = event.target.value;
@@ -18,7 +21,9 @@ class CitySearch extends Component {
             onChange={this.handleInputChanged}
         />
         <ul className="suggestions">
-          
+          {this.state.suggestions.map((suggestion) => (
+            <li key={suggestions}>{suggestion}</li>
+          ))}
         </ul>
        </div>
 
