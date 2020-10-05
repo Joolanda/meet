@@ -71,7 +71,7 @@
       const getAccessToken = document.getElementById("getToken");
       const accessTokenElement = document.getElementById("accessToken");
       const getToken =
-        "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/token/{code}";
+        "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/token/";
 
       getAccessToken.onclick = function () {
         const getTokenRequest = getToken + codeValue.value;
@@ -86,7 +86,7 @@
             // --------------------- STEP 3
       const getEvents = document.getElementById("getEvents");
       const events = document.getElementById("events");
-      const getCalendarEvents = "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/{access_token}";
+      const getCalendarEvents = "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/";
       //const getCalendarEvents = "YOUR_GET_CALENDAR_EVENTS_ENDPOINT"; Check this URL after serverless deploy and c+p
 
       getEvents.onclick = function () {
