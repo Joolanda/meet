@@ -5,7 +5,7 @@ import { mockData } from './mock-data';
 class CitySearch extends Component {
   state = {
     locations: this.props.location,
-    query: '', 
+    query: 'Berlin, German', 
     suggestions: []
   }
 
@@ -28,7 +28,7 @@ class CitySearch extends Component {
         />
         <ul className="suggestions">
           {this.state.suggestions.map((suggestion) => (
-            <li key={suggestion}>onClick={() => this.handleItemClicked(suggestion)}{suggestion} </li>
+            <li key={suggestion}>onClick={() => this.handleItemClicked(suggestion)}</li>
           ))}
         </ul>
        </div>
