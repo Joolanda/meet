@@ -52,7 +52,7 @@ describe('<Event/> component', () => {
     };
     EventWrapper = shallow(<Event event={event} />);
   });
-  test('render events for that city ', () => {
+  test('render Event component for that city ', () => {
  //  const EventWrapper = shallow(<Event event={event} />);
   expect(EventWrapper.find('.Event')).toHaveLength(1);
   });
