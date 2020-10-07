@@ -4,6 +4,8 @@ import App from '../App';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
 import Event from '../Event';
+import { mockData } from '../mock-data';
+import NumberOfEvents from '../NumberOfEvents';
 
 describe('<App /> component', () => {
   let AppWrapper;
@@ -17,6 +19,9 @@ describe('<App /> component', () => {
   test('render CitySearch', () => {
     expect(AppWrapper.find(CitySearch)).toHaveLength(1);
   });
+  test('render NumberOfEvents', () => {
+    expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1)
+  })
 });
 
 
