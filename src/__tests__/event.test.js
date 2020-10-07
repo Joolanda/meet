@@ -52,9 +52,14 @@ describe('<Event/> component', () => {
     };
     EventWrapper = shallow(<Event event={event} />);
   });
-  test('render Event component for that city ', () => {
+  test('renders Event for that city ', () => {
  //  const EventWrapper = shallow(<Event event={event} />);
   expect(EventWrapper.find('.Event')).toHaveLength(1);
   });
+  test('event should contain a summary or name', () => {
+    expect(EventWrapper.find('.event__summary')).toHaveLength(1);
+  });
+  test('test that event summary children are rendered', () => {
+    expect(EventWrapper.find('.event__summary').children()).toHaveLength(1);
+  });
 });
-
