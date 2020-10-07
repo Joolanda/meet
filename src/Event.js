@@ -14,7 +14,7 @@ class Event extends Component {
   };
 
   render() {
-    
+
     const showDetails = this.state.showDetails;
     
     return (

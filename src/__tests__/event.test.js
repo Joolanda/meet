@@ -62,4 +62,7 @@ describe('<Event/> component', () => {
   test('test that event summary children are rendered', () => {
     expect(EventWrapper.find('.event__summary').children()).toHaveLength(1);
   });
+
+
+  
 });
