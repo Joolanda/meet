@@ -8,8 +8,7 @@ class NumberOfEvents extends Component {
   render() {
     return(
       <div className='numberOfEvents'>
-        <label>
-          <h5>Number of Events:</h5></label>
+        <label>Number of Events:</label>
           <input
             value={this.state.numberOfEvents}
             type='text'
