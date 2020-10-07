@@ -14,6 +14,9 @@ class Event extends Component {
   };
 
   render() {
+    
+    const showDetails = this.state.showDetails;
+    
     return (
     <div className="Event">
       <div className="event__summary">
