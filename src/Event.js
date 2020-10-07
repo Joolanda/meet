@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-
-// import { mockData } from'./mock-data';
+import { mockData } from'./mock-data';
 
 class Event extends Component {
   render() {
     return (
-    <div>
-      
-    </div>
+    <div className="Event">
+      <p className="event__summary">
+      {this.props.event.name}
+      </p>
+      </div>
     );
   }
 }

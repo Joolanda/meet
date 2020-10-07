@@ -13,8 +13,7 @@ export const extractLocations = (events) => {
   return locations;
 };
 
-//export const extractEvents = (events) => {
-// var extractEvents = events.map((event) => event.description);
-// var events = [...new Set(extractEvents)];
-// return Events;
-//};
+// export const extractSummaries = (events) => {
+//  var extractSummaries = events.map((event) => event.summary);
+//   var summaries = [...new Set(extractSummaries)];
+// return summaries;};
