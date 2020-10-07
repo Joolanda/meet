@@ -45,7 +45,7 @@ describe('<CitySearch /> component', () => {
 });
 
 describe('<CitySearch /> integration', () => {  
-  test('get a list of cities when the user searches for Berlin', () =>
+  test('get a list of cities when the user searches for Berlin', () => {
   const CitySearchWrapper =shallow(<CitySearch locations={locations} />);
   CitySearchWrapper.find('.city').simulate('change', {
     target: { value: 'Berlin' },
