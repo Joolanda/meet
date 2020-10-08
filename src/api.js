@@ -13,6 +13,10 @@ export const extractLocations = (events) => {
   return locations;
 };
 
+export const getEvents = async () => {
+  return { events: mockData, locations: extractLocations(mockData)};
+};
+
 // export const extractSummaries = (events) => {
 //  var extractSummaries = events.map((event) => event.summary);
 //   var summaries = [...new Set(extractSummaries)];
