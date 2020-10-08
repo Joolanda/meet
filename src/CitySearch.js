@@ -5,7 +5,7 @@ import { mockData } from './mock-data';
 class CitySearch extends Component {
   state = {
     locations: this.props.locations,
-    query: 'Berlin, Germany', 
+    query: 'London, UK', 
     suggestions: [],
   };
 
