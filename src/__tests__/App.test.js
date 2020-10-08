@@ -4,7 +4,6 @@ import { mount } from 'enzyme';
 import App from '../App';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
-import Event from '../Event';
 import { mockData } from '../mock-data';
 import NumberOfEvents from '../NumberOfEvents';
 
