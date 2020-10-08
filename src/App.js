@@ -20,7 +20,7 @@ updateEvents = (location) => {
       location === 'all'
         ? response.events
         : response.events.filter((event) => event.location === location);
-    const events = locationEvents.slice(0, numberOfEvents);
+    const events = locationEvents.slice(0, NumberOfEvents); // even controleren of NumberOfEvents met hfdletter begint
     return this.setState({
       events : events,
       currentLocation: location,
