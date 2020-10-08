@@ -26,6 +26,17 @@ describe('<App /> component', () => {
 });
 
 describe('<App /> integration', () => {
+/*   check whether the list of events has been updated 
+  after the user has selected a city. with a new function updateEvents()
+  you will write afterwards in step three of the TDD process*/
+  test("get list of events after the user selects a city", async () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.instance().updateEvents = jest.fn();
+    AppWrapper.instance().forceUpdate();
+    const CitySearchWrapper = AppWrapper.find(CitySearch);
+    CitySearchWrapper.instance().handleItemClicked('London, UK');
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
+  });
 
 });
 

@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       < div className="App">
-        <CitySearch />
+        <CitySearch updateEvents={this.updateEvents}/>
         <EventList />
         <NumberOfEvents />
       </div>
