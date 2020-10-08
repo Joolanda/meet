@@ -5,26 +5,27 @@ import { mockData } from './mock-data';
 class CitySearch extends Component {
   state = {
     locations: this.props.locations,
-    query: 'Berlin, German', 
-    suggestions: []
-  }
+    query: 'Berlin, Germany', 
+    suggestions: [],
+  };
 
   handleInputChanged = (event) => {
     const value = event.target.value;
     const suggestions = this.props.locations.filter((location) => {
-      return location.toUpperCase().IndexOf(value.toUpperCase()) > -1;
+      return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
+
     return this.setState({
       query: value,
       suggestions,
     });
   };
   handleItemClicked = (suggestion) => {
-    this.setState({ 
-      query: suggestion, 
+    this.setState({
+      query: suggestion,
       suggestions: [],
-     });
-  };
+    });
+ };
 
   render() {
     return (
