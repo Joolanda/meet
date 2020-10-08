@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { extractLocations } from './api';
 import { mockData } from './mock-data';
 
+//const locations = extractlocations(mockData);
+
 class CitySearch extends Component {
   state = {
     locations: this.props.locations,
