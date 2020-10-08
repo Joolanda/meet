@@ -11,7 +11,7 @@ state = {
   events: [],
   currentLocation: 'all',
   locations: [],
-}
+};
 
 updateEvents = (location) => {
 
@@ -31,7 +31,7 @@ updateEvents = (location) => {
 
     return (
       < div className="App">
-        <CitySearch updateEvents={this.updateEvents}/>
+        <CitySearch updateEvents={this.updateEvents} locations={this.state.locations} />
         <EventList />
         <NumberOfEvents />
       </div>

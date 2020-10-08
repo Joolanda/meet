@@ -14,7 +14,7 @@ export const extractLocations = (events) => {
 };
 
 export const getEvents = async () => {
-  return { events: mockData, locations: extractLocations(mockData)};
+  return { events: mockData, locations: extractLocations(mockData) };
 };
 
 // export const extractSummaries = (events) => {

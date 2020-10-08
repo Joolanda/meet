@@ -33,7 +33,7 @@ describe('<CitySearch locations={locations} /> component', () => {
     for (let i = 0; i < suggestions.length; i += 1) {
       expect(CitySearchWrapper.find('.suggestions li').at(i).text()).toBe(suggestions[i].name_string);
     }
-  });  
+  });
   test('selecting a suggestion should change query state', () => {
     const CitySearchWrapper = shallow(<CitySearch updateEvents={() =>{}} />);
     CitySearchWrapper.setState({
