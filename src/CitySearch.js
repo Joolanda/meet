@@ -4,18 +4,27 @@ import { mockData } from './mock-data';
 
 class CitySearch extends Component {
   state = {
-    locations: this.props.location,
+    locations: this.props.locations,
     query: 'Berlin, German', 
     suggestions: []
   }
 
   handleInputChanged = (event) => {
     const value = event.target.value;
-    this.setState({ query: value });
-  }
-  handleItemClicked = (value) => {
-    this.setState({ query: value });
-  }
+    const suggestions = this.props.locations.filter((location) => {
+      return location.toUpperCase().IndexOf(value.toUpperCase()) > -1;
+    });
+    return this.setState({
+      query: value,
+      suggestions,
+    });
+  };
+  handleItemClicked = (suggestion) => {
+    this.setState({ 
+      query: suggestion, 
+      suggestions: [],
+     });
+  };
 
   render() {
     return (
@@ -29,9 +38,16 @@ class CitySearch extends Component {
             onChange={this.handleInputChanged}
         />
         <ul className="suggestions">
-          {this.state.suggestions.map((suggestion) => (
-            <li key={suggestion}>onClick={() => this.handleItemClicked(suggestion)}</li>
-          ))}
+          {
+           this.state.suggestions.map((suggestion) => (
+            <li key={suggestion} onClick={() => this.handleItemClicked(suggestion)}>
+           {suggestion}
+            </li>
+            ))
+          }
+            <li onClick={() => this.handleItemClicked("all")}>
+              <b>See all cities</b>
+              </li>;
         </ul>
        </div>
 
