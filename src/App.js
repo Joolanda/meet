@@ -49,8 +49,5 @@ updateEvents = (location) => {
     );
   }
 }
-componentWillUnmount(){
-  this.mounted = false;
-}
 
 export default App;
