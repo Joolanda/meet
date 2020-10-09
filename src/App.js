@@ -43,8 +43,8 @@ updateEvents = (location) => {
     return (
       < div className="App">
         <CitySearch updateEvents={this.updateEvents} locations={this.state.locations} />
-        <NumberOfEvents />
         <EventList events={this.state.events} />
+        <NumberOfEvents />
       </div>
     );
   }
