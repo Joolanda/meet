@@ -34,10 +34,13 @@ describe('<App /> integration', () => {
     AppWrapper.instance().updateEvents = jest.fn();
     AppWrapper.instance().forceUpdate();
     const CitySearchWrapper = AppWrapper.find(CitySearch);
-    CitySearchWrapper.instance().handleItemClicked('Berlin, Germany');
+    CitySearchWrapper.instance().handleItemClicked("Berlin, Germany");
     expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
-    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith('Berlin, Germany');
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith('Berlin, Germany'
+    );
+    AppWrapper.unmount();
   });
+
   //create a test that will get data from the mock API
   /* test('change state after getting list of events', async () => {
     const AppWrapper = shallow(<App />);
