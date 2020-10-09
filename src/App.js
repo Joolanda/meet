@@ -6,14 +6,25 @@ import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
 
 class App extends Component {
+
 state = {
   events: [],
   currentLocation: 'all',
   locations: [],
 };
+componentDidMount() {
+  this.mounted = true;
+  getEvents().then((response) => {
+    if(this.mounted) {
+    this.setState({ events: response.events, locations: response.locations });
+    }
+  });
+}
+componentWillUnmount(){
+  this.mounted = false;
+}
 
-/* updateEvents = (location) => {
-
+updateEvents = (location) => {
   getEvents().then((response) => {
     const locationEvents =
       location === 'all'
@@ -25,16 +36,21 @@ state = {
       currentLocation: location,
     });
   });
-} */
+}
+
   render() {
 
     return (
       < div className="App">
-        <CitySearch updateEvents={this.updateEvents} />
+        <CitySearch updateEvents={this.updateEvents} locations={this.state.locations} />
         <EventList events={this.state.events} />
         <NumberOfEvents />
       </div>
     );
   }
 }
+componentWillUnmount(){
+  this.mounted = false;
+}
+
 export default App;
