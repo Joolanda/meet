@@ -21,6 +21,7 @@ describe('<App /> component', () => {
   test('render NumberOfEvents', () => {
     expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1)
   })
+  
 });
 
 describe('<App /> integration', () => {
@@ -43,8 +44,8 @@ describe('<App /> integration', () => {
     await AppWrapper.update();
     expect(await AppWrapper.state('events')).toStrictEqual(mockData);
     AppWrapper.unmount();
-  });
-
+  });  
+  
   test('render correct list of events', () => {
     const AppWrapper = mount(<App />);
     AppWrapper.setState({
