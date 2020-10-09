@@ -8,6 +8,7 @@ import NumberOfEvents from '../NumberOfEvents';
 
 describe('<App /> component', () => {
   let AppWrapper;
+
   beforeAll(() => {
     AppWrapper = shallow(<App />);
   });
@@ -44,17 +45,16 @@ describe('<App /> integration', () => {
     await AppWrapper.update();
     expect(await AppWrapper.state('events')).toStrictEqual(mockData);
     AppWrapper.unmount();
-  });  
+  });
   
   test('render correct list of events', () => {
     const AppWrapper = mount(<App />);
     AppWrapper.setState({
       events: mockData,
     });
-    expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
+    expect(AppWrapper.find(.'event')).toHaveLength(mockData.length);
     AppWrapper.unmount();
   });
-
 });
 
 
