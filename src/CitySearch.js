@@ -35,10 +35,10 @@ class CitySearch extends Component {
         <h1> Meet App</h1>
         <h3>Choose your nearest city</h3>
         <input
-            type="text"
-            className="city"
-            value={this.state.query}
-            onChange={this.handleInputChanged}
+          type='text'
+          className='city'
+          value={this.state.query}
+          onChange={this.handleInputChanged}
         />
         <ul className="suggestions">
           {
