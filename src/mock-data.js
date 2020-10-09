@@ -1,4 +1,4 @@
-const mockData = [
+export const mockData = [
   // contains 4 different calendar events, (2 different summaries), in 2 different cities
     {
       kind: 'calendar#event',
@@ -155,4 +155,3 @@ const mockData = [
     // all rest mockdata goes here
 
 ];
-export { mockData };

@@ -12,7 +12,7 @@ state = {
   locations: [],
 };
 
-updateEvents = (location) => {
+/* updateEvents = (location) => {
 
   getEvents().then((response) => {
     const locationEvents =
@@ -25,7 +25,7 @@ updateEvents = (location) => {
       currentLocation: location,
     });
   });
-}
+} */
   render() {
 
     return (
