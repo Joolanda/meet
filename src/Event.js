@@ -40,7 +40,7 @@ class Event extends Component {
         <div className='event__Details'>
           <h3>About event: </h3>
           {/* <h4><a ref={htmlLink} target='blank'> See details on Google Calendar </a></h4> */}
-          <p className="event__Details--description">{this.props.event.description}</p>
+          <p className='event__Details--description'>{this.props.event.description}</p>
       </div>
       }
     </div>
