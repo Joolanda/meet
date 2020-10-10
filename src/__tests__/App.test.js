@@ -52,7 +52,7 @@ describe('<App /> integration', () => {
     AppWrapper.setState({
       events: mockData,
     });
-    expect(AppWrapper.find(.'event')).toHaveLength(mockData.length);
+    expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
     AppWrapper.unmount();
   });
 });

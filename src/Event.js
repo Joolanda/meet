@@ -18,12 +18,12 @@ class Event extends Component {
     const showDetails = this.state.showDetails;
     
     return (
-    <div className="Event">
-      <div className="event__summary">
+    <div className='event'>
+      <div className='event__summary'>
       <h1> {this.props.event.summary}</h1>
       </div>
-      <p className="event__summary--dateTime">{this.props.event.start.dateTime}</p>
-      <p className="event__summary--timeZone">{this.props.event.start.timeZone}</p>
+      <p className='event__summary--dateTime'>{this.props.event.start.dateTime}</p>
+      <p className='event__summary--timeZone'>{this.props.event.start.timeZone}</p>
       {showDetails && 
       <button
         className='details-btn'
@@ -39,7 +39,7 @@ class Event extends Component {
       {showDetails && 
         <div className='event__Details'>
           <h3>About event: </h3>
-          <h4><a ref={this.props.event.htmlLink} target='blank'> See details on Google Calendar </a></h4>
+          <h4><a ref={htmlLink} target='blank'> See details on Google Calendar </a></h4>
           <p className="event__Details--description">{this.props.event.description}</p>
       </div>
       }
