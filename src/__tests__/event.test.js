@@ -38,11 +38,11 @@ describe('<Event/> component', () => {
     expect(EventWrapper.find('.details-btn')).toHaveLength(1);
   });
 
-  // test('show more details when a user clicks on the button',() => {
-  //   EventWrapper.setState({
-  //     showDetails: false,
-  //   });
-  //   EventWrapper.find('.event button').simulate('click');
-  //   expect(EventWrapper.state('showDetails')).toBe(true);
-  //  });
+  test('show more details when a user clicks on the button',() => {
+    EventWrapper.setState({
+      showDetails: false,
+    });
+    EventWrapper.find('.details-btn').simulate('click');
+    expect(EventWrapper.state('showDetails')).toBe(true);
+   });
 });
