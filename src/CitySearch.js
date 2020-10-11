@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
-import { extractLocations } from './api';
-import { mockData } from './mock-data';
 
 //const locations = extractlocations(mockData);
 
 class CitySearch extends Component {
   state = {
     locations: this.props.locations,
-    query: 'London, UK', 
-    suggestions: [],
+    query: '', 
+    showSuggestions: false,
+    suggestions: []
   };
+
 
   handleInputChanged = (event) => {
     const value = event.target.value;
+    this.setState({showSuggestions:true});
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
-
     return this.setState({
       query: value,
+      showSuggestions: true,
       suggestions,
     });
   };
   handleItemClicked = (suggestion) => {
     this.setState({
       query: suggestion,
+      suggestions: [],
+      showSuggestions: false,
     });
     this.props.updateEvents(suggestion);
  };
@@ -40,7 +43,10 @@ class CitySearch extends Component {
           value={this.state.query}
           onChange={this.handleInputChanged}
         />
-        <ul className="suggestions">
+        <ul className={
+            this.state.showSuggestions ? 'suggestions showSuggestions' : 'display-none'
+          }
+        >
           {
            this.state.suggestions.map((suggestion) => (
             <li key={suggestion} onClick={() => this.handleItemClicked(suggestion)}>
