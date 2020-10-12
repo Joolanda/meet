@@ -31,7 +31,7 @@ const checkToken = async (accessToken) => {
     //
     // const getToken = "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/token/";
     // YOUR_GET_EVENTS_API_ENDPOINT
-    // 
+    // const getCalendarEvents = "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/";
 /**
  *
  * @param {*} events:
@@ -56,10 +56,12 @@ const getEvents = async () => {
   }
 
   const token = await getAccessToken();
-
+  console.log('getEvents token: ', token)
   if (token) {
     removeQuery();
-    const url = `YOUR_GET_EVENTS_API_ENDPOINT/${token}`;
+    // YOUR_GET_EVENTS_API_ENDPOINT
+    // const getCalendarEvents = "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/";
+    const url = `https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/${token}`;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
@@ -102,7 +104,7 @@ return accessToken;
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
-    `YOUR_GET_ACCESS_TOKEN_ENDPOINT/${encodeCode}`
+    `https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/token/${encodeCode}`
   )
     .then((res) => {
       return res.json();
