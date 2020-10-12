@@ -10,7 +10,7 @@ const removeQuery = () => {
     window.location.pathname;
   window.history.pushState("", "", newurl);
   } else {
-    newurl = window.location.protocol + "//" + window.location.host,
+    newurl = window.location.protocol + "//" + window.location.host;
     window.history.pushState("", "", newurl);
   }
 };
@@ -93,11 +93,11 @@ const tokenCheck = accessToken && (await checkToken(accessToken));
     );
     const { authUrl } = results.data;
     return (window.location.href = authUrl);
-  }
+    }
   return code && getToken(code);
-}
+  }
 return accessToken;
-
+};
 
 // check volgorde van fcts
 
