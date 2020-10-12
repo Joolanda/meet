@@ -5,12 +5,13 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
-
+//import { checkToken, getToken } from './api';
 class App extends Component {
 
 state = {
   events: [],
   currentLocation: 'all',
+  numberOfEvents: 32,
   locations: [],
 };
 componentDidMount() {
@@ -24,7 +25,8 @@ componentDidMount() {
 componentWillUnmount(){
   this.mounted = false;
 }
-
+// task part 3: you'll need to refactor the UpdateEvents fct
+// to take 2 parameters "location" and "eventCount" and in the state 32 number of events
 updateEvents = (location) => {
   getEvents().then((response) => {
     const locationEvents =
@@ -45,7 +47,7 @@ updateEvents = (location) => {
       < div className="App">
         <CitySearch updateEvents={this.updateEvents} locations={this.state.locations} />
         <EventList events={this.state.events} />
-        <NumberOfEvents />
+        <NumberOfEvents numberOfEvents= {this.state.numberOfEvents} />
       </div>
     );
   }

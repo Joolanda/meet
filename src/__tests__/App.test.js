@@ -55,6 +55,10 @@ describe('<App /> integration', () => {
     expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
     AppWrapper.unmount();
   });
+  // Task 4.4 Part 1: test('get list of 32 events when user hasn't specified a number')
+  // show a list of 32 events by default, mockData events 32
+
+
 });
 
 
