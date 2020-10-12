@@ -75,18 +75,19 @@ const getEvents = async () => {
 
 
 // const getAccessToken Waar is deze functie gebleven?
-const accessToken = localStorage.getItem('access_token');
-
+// old code : const accessToken = localStorage.getItem('access_token');
+const getAccessToken = async () => {
+  const accessToken = await localStorage.getItem("access_token");
 //  google redirect user back to app with code which you can use
 // to retrieve the access tocken from Lambda fcts on auth server.
 const tokenCheck = accessToken && (await checkToken(accessToken));
 
-if (!accessToken || tokenCheck.error) {
-  await localStorage.removeItem("access_token");
-  const searchParams = new URLSearchParams(window.location.search);
-  const code = await searchParams.get("code");
-  if (!code) {
-    const results = await axios.get(
+  if (!accessToken || tokenCheck.error) {
+    await localStorage.removeItem("access_token");
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = await searchParams.get("code");
+    if (!code) {
+      const results = await axios.get(
       //"YOUR_SERVERLESS_GET_AUTH_URL_ENDPOINT"
       "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
     );
@@ -116,4 +117,4 @@ const getToken = async (code) => {
   return access_token;
 };
 
-export { getEvents, getAccessToken, extractLocations, getToken, checkToken };
+export { getEvents, getAccessToken, extractLocations, getToken, checkToken  };
