@@ -21,8 +21,8 @@ describe('<NumberOfEvents /> component', () => {
   });
   // save events and locations to the state, renders a list of 32 events by default
   test('change state when input changes', () => {
-    const eventObject = { target: { value: 32 } };
-    NumberOfEventsWrapper.find("#numberOfEvents__input").simulate('change', eventObject
+    const eventCount = { target: { value: 32 } };
+    NumberOfEventsWrapper.find("#numberOfEvents__input").simulate('change', eventCount
     );
     expect(NumberOfEventsWrapper.state("numberOfEvents")).toBe(32);
   });

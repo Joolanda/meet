@@ -46,6 +46,18 @@ describe('<App /> integration', () => {
     expect(await AppWrapper.state('events')).toStrictEqual(mockData);
     AppWrapper.unmount();
   });
+   // test('update the eventslist after user changes number of events', () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.instance().updateEvents = jest.fn();
+    AppWrapper.instance().forceUpdate();
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    NumberOfEventsWrapper.instance().handleInputChanged({
+      target: { value: 1 },
+    });
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith(null, 1);
+    AppWrapper.unmount();
+  });
   
   test('render correct list of events', () => {
     const AppWrapper = mount(<App />);
@@ -57,9 +69,10 @@ describe('<App /> integration', () => {
   });
   // Task 4.4 Part 1: test('get list of 32 events when user hasn't specified a number')
   // show a list of 32 events by default, mockData events 32
+  // test: update List of events after user changes number of events
 
 
 
-});
+
 
 
