@@ -25,6 +25,17 @@ componentDidMount() {
 componentWillUnmount(){
   this.mounted = false;
 }
+// retrieving data cities
+getData = () => {
+  const { locations, events } = this.state;
+  const data = locations.map((location) => {
+    const number = events.filter((event) =>event.location ===location).length;
+    const city = location.split(' ').shift();
+    return { city, number };
+  });
+  return data;
+};
+
 // task part 3: you'll need to refactor the UpdateEvents fct
 // to take 2 parameters "location" and "eventCount" and in the state 32 number of events
 updateEvents = (location, eventCount) => {
