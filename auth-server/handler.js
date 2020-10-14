@@ -83,6 +83,9 @@ module.exports.getAccessToken = async (event) => {
          console.error(err);
          return {
            statusCode: 500,
+           headers: {
+           'Access-Control-Allow-Origin': '*',
+         },
            body: JSON.stringify(err),
          };
        });
@@ -123,7 +126,7 @@ module.exports.getCalendarEvents = async (event) => {
       return {
         statusCode: 200,
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          'Access-Control-Allow-Origin': '*',
           ...results.config.headers,
         },
         body: JSON.stringify({ events: results.data.items }),
@@ -133,7 +136,7 @@ module.exports.getCalendarEvents = async (event) => {
       return {
         statusCode: 500,
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          'Access-Control-Allow-Origin': '*',
         },
         body: JSON.stringify(err),
       };
