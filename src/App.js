@@ -61,14 +61,14 @@ updateEvents = (location, eventCount) => {
 }
 
   render() {
-
+    const { locations, numberOfEvents, events } = this.state
     return (
       < div className="App">
         <h1> Meet App</h1>
         <h3>Choose your nearest city</h3>
-        <CitySearch updateEvents={this.updateEvents} locations={this.state.locations} />
-        <EventList events={this.state.events} />
-        <NumberOfEvents numberOfEvents= {this.state.numberOfEvents} />
+        <CitySearch updateEvents={this.updateEvents} locations={locations} />
+        <EventList events={events} />
+        <NumberOfEvents numberOfEvents= {numberOfEvents} />
       </div>
     );
   }
