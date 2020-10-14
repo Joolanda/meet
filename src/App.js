@@ -28,6 +28,9 @@ componentWillUnmount(){
 // task part 3: you'll need to refactor the UpdateEvents fct
 // to take 2 parameters "location" and "eventCount" and in the state 32 number of events
 updateEvents = (location, eventCount) => {
+  const { currentLocation, numberOfEvents } = this.state;
+  if (location) {
+  }
   //const {  numberOfEvents } =this.state;
   getEvents().then((response) => {
     const locationEvents =
@@ -38,9 +41,26 @@ updateEvents = (location, eventCount) => {
     return this.setState({
       events : events,
       currentLocation: location,
+      locations: response.locations,
     });
   });
+} else {getEvents().then((response) => {
+  const locationEvents =
+    location === 'all'
+      ? response.events
+      : response.events.filter((event) => event.location === currentlocation);
+  const events = locationEvents.slice(0, eventCount); 
+  return this.setState({
+    events : events,
+    numberOfEvents: eventCount,
+    locations: response.locations,
+  });
+});
+
+
+
 }
+};
 
   render() {
 
