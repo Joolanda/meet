@@ -79,7 +79,7 @@ updateEvents = (location, eventCount) => {
         <h3>Choose your nearest city</h3>
         <CitySearch updateEvents={this.updateEvents} locations={locations} />
         <EventList events={events} />
-        <NumberOfEvents numberOfEvents= {numberOfEvents} />
+        <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents= {numberOfEvents} />
       </div>
     );
   }
