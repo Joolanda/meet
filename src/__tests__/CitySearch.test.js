@@ -2,7 +2,9 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { extractLocations } from '../api';
 import { mockData } from '../mock-data';
+import App from "../App";
 import CitySearch from '../CitySearch';
+
 const locations = extractLocations(mockData);
 
 describe('<CitySearch locations={locations} /> component', () => {
@@ -71,3 +73,14 @@ describe('<CitySearch /> integration', () => {
   expect(CitySearchWrapper.state('suggestions')).toEqual(['Berlin, Germany']);
   });
 });
+
+test('get a list of events after the user selects a city',async() => {
+  const AppWrapper = mount (<App />);
+  AppWrapper.instance().updateEvents = jest.fn();
+  AppWrapper.instance().forceUpdate();
+  const CitySearchWrapper = AppWrapper.find(CitySearch);
+  CitySearchWrapper.instance().handleItemClicked('value');
+  expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
+  });
+
+
