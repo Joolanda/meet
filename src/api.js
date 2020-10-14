@@ -103,6 +103,7 @@ return accessToken;
 
 
 const getToken = async (code) => {
+  removeQuery();
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
     `https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/token/${encodeCode}`
