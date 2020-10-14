@@ -24,7 +24,7 @@ describe('<App /> component', () => {
   })
   
 });
-
+// here below starts integration testing
 describe('<App /> integration', () => {
   test('get list of events after the user selects a city', async () => {
     const AppWrapper = mount(<App />);
@@ -57,6 +57,7 @@ describe('<App /> integration', () => {
   });
   // Task 4.4 Part 1: test('get list of 32 events when user hasn't specified a number')
   // show a list of 32 events by default, mockData events 32
+
 
 
 });
