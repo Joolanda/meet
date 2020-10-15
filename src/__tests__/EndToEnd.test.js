@@ -10,21 +10,19 @@ describe('show/hide an event details', () => {
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('.event');
   });
+
   afterAll(() => {
     browser.close();
   });
-  test('An event element is collapsed by default', async () =>
-  {
-    const eventDetails = await page.$('.event .event__Details');
 
+  test('An event element is collapsed by default', async () => {
+    const eventDetails = await page.$('.event .event__Details');
     expect(eventDetails).toBeNull();
-    browser.close();
   });
-  test('User van expand an event to see its details', async () => 
-  {
+
+  test('User can expand an event to see its details', async () => {
     await page.click('.event .details-btn');
     const eventDetails = await page.$('.event .event__Details');
-
     expect(eventDetails).toBeDefined();
   });
 });
