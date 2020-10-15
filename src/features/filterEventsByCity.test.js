@@ -1,4 +1,7 @@
 import { loadFeature, defineFeature } from 'jest-cucumber';
+import { mount} from 'enzyme';
+import App from '../App';
+import { mockData } from '../mockData';
 
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
@@ -7,9 +10,9 @@ defineFeature(feature, test => {
     given('user hasn’t searched for any city', () => {
 
     });
-
+    let AppWrapper;
     when('the user opens the app', () => {
-
+      AppWrapper = mount(<App />);
     });
 
     then('the user should see the list of upcoming events.', () => {
