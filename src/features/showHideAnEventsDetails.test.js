@@ -10,7 +10,8 @@ defineFeature(feature, test => {
   test('An event element is collapsed by default', ({ given, and, when, then }) => {
     let CitySearchWrapper;
     given('the user has filtered events by city', () => {
-    expect CitySearchWrapper.find('city').toHaveLength(1)
+    CitySearchWrapper.shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
+    //   );
 
       // test('render text input', () => {
       //   const CitySearchWrapper = shallow(<CitySearch locations={locations} />);
