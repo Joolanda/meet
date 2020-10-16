@@ -16,14 +16,14 @@ class Event extends Component {
         {showDetails && (
           <button
             className='details-btn'
-            onClick={() => this.setState({ showdetails: !showDetails })}>
-            hide event__Details
+            onClick={() => this.setState({ showDetails: !showDetails })}>
+            hide details
           </button>
           )}
           {!showDetails && (
         <button
             className="details-btn"
-            onClick={() => this.setState({ showdetails: !showDetails })}>
+            onClick={() => this.setState({ showDetails: !showDetails })}>
             show details
           </button>
           )}

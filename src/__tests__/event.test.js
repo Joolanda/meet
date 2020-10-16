@@ -39,14 +39,14 @@ describe('<Event/> component', () => {
   });
 
   test('test that button to show or hide more details is rendered', () => {
-    expect(EventWrapper.find('.details-btn')).toHaveLength(1);
+    expect(EventWrapper.find('.event__summary button')).toHaveLength(1);
   });
 
   test('show more details when a user clicks on the button',() => {
     EventWrapper.setState({
       showDetails: false,
     });
-    EventWrapper.find('.details-btn').simulate('click');
+    EventWrapper.find('.event__summary button').simulate('click');
     expect(EventWrapper.state('showDetails')).toBe(true);
    });
 });
