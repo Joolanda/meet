@@ -6,26 +6,17 @@ import { mockData } from '../mock-data';
 import { extractLocations } from "../api";
 import CitySearch from '../CitySearch';
 
-
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
-const locations = extractLocations(mockData)
+const locations = extractLocations(mockData);
+
 defineFeature(feature, test => {
   test('An event element is collapsed by default', ({ given, and, when, then }) => {
-    let CitySearchWrapper;
+    let AppWrapper;
     given('the user has filtered events by city', () => {
-    CitySearchWrapper.shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
-    //   );
-
-      // test('render text input', () => {
-      //   const CitySearchWrapper = shallow(<CitySearch locations={locations} />);
-      //   expect(CitySearchWrapper.find('.city')).toHaveLength(1);
-      // });
-      // test('renders a list of suggestions', () => {
-      //   const CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />
-      //   );
-      //   const suggestions = CitySearchWrapper.state('suggestions');
-      //   expect(CitySearchWrapper.find('.
-
+      AppWrapper.update();
+      expect (AppWrapper.find('.event')).toHaveLength(mockData.length);
+    //CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
+    
 
     });
 
