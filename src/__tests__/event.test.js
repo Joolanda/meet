@@ -30,8 +30,12 @@ describe('<Event/> component', () => {
     expect(EventWrapper.find('.event__summary')).toHaveLength(1);
   });
 
+  test('test that event summary with date and time is rendered', () => {
+    expect(EventWrapper.find('.event__summary--dateTime')).toHaveLength(1);
+  });
+  
   test('test that event__summary children are rendered', () => {
-    expect(EventWrapper.find('.event__summary').children()).toHaveLength(1);
+    expect(EventWrapper.find('.event__summary--dateTime').children()).toHaveLength(1);
   });
 
   test('test that button to show or hide more details is rendered', () => {
