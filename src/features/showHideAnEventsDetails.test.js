@@ -2,7 +2,10 @@ import { loadFeature, defineFeature } from 'jest-cucumber';
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import App from '../App';
-import { mockData } from '../CitySearch';
+import { mockData } from '../mock-data';
+import { extractLocations } from "../api";
+import CitySearch from '../CitySearch';
+
 
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
 const locations = extractLocations(mockData)
@@ -27,7 +30,7 @@ defineFeature(feature, test => {
     });
 
     and('sees the list of upcoming events from their location', () => {
-    expect CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
+    //expect CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
 
     });
 
