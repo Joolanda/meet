@@ -13,18 +13,18 @@ defineFeature(feature, test => {
      
     });
     let AppWrapper;
-  });
+
     and('app loaded', () => {
       AppWrapper = mount(<App />);
     });
 
     when('the user did not click the „Show Details“ yet', () => {
         AppWrapper.update();
-        expect(AppWrapper.find('showDetails')).toHaveLength(0);
+        expect(AppWrapper.find('.event')).toHaveLength(mockData.Applength);
     });
 
     then('the event elements are collapsed', () => {
-
+        expect(AppWrapper.find('showDetails')).toHaveLength(0);
     });
   });
 
