@@ -8,11 +8,15 @@ import { extractLocations } from "../api";
 import CitySearch from '../CitySearch';
 
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
+const locations = extractLocations(mockData);
 
 defineFeature(feature, test => {
   test('An event element is collapsed by default', ({ given, and, when, then }) => {
      given('the user has filtered events by city', () => {
-
+      let AppWrapper;
+      AppWrapper = mount(<App />);
+      AppWrapper.update();
+      expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
     //  });
     // let AppWrapper;
     //   AppWrapper.update();
