@@ -1,108 +1,60 @@
-
-import React from 'react';
-import App from '../App';
 import { loadFeature, defineFeature } from 'jest-cucumber';
-import { mount, shallow } from 'enzyme';
-import { mockData } from '../mock-data';
-import { extractLocations } from "../api";
-import CitySearch from '../CitySearch';
 
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
-const locations = extractLocations(mockData);
 
 defineFeature(feature, test => {
-
-
-  test('An event element is collapsed by default', async ({ given, and, when, then }) => {
-    let AppWrapper;
-     given('the user has filtered events by city', () => {
-      AppWrapper = mount(<App />);
-      AppWrapper.update();
-      const CitySearchWrapper = AppWrapper.find(CitySearch);
-
-      expect(CitySearchWrapper.state('query')).toBe('');
-      expect(AppWrapper.find('event__summary')).toHaveLength(1);
-    //  });
-    // let AppWrapper;
-    //   AppWrapper.update();
-    //   expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
-    //CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
-
-    //      then('the user should see the list of upcoming events', () => {
-    //   AppWrapper.update();
-    //   expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
-    //   });
+  test('An event element is collapsed by default', ({ given, and, when, then }) => {
+    given('the list of events has been loaded', () => {
 
     });
 
-    and('sees the list of upcoming events from their location', () => {
-    //expect CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
-    // AppWrapper.update();
-    //   expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
+    and('app loaded', () => {
+
     });
 
-    when('user hasn’t clicked on a button of a specific event to show more details', () => {
-      let AppWrapper;
-      AppWrapper = mount(<App />);
-      AppWrapper.update();
-      expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
+    when('the user did not click the „Show Details“ yet', () => {
+
     });
 
-    then('the user should see a short description of each upcoming event by default', () => {
+    then('the event elements are collapsed', () => {
 
     });
   });
 
   test('User can expand an event to see its details', ({ given, and, when, then }) => {
-    let AppWrapper;
-    // AppWrapper = mount(<App />);
-
-    given('the user sees a list of the upcoming events that take place', () => {
-
-      // AppWrapper.update();
-      // expect(AppWrapper.find('.event')).toHaveLength(mockData.events.length);
-      // AppWrapper = mount(<App />);
-      // expect(AppWrapper.find('.event .details-btn')).toHaveLength(1);
- 
-  
+    given('app loaded', () => {
 
     });
 
-    and('sees per event a details button', () => {
-      // let AppWrapper;
-      // AppWrapper = mount(<App />);
-      //  AppWrapper.update();
-
-      //  expect(AppWrapper.find('.event .details-btn')).toHaveLength(1);
-    });
-
-    when('the user chooses an upcoming event', () => {
+    and('the list of events has been loaded', () => {
 
     });
 
-    and('clicks on its details button', () => {
+    when('the user clicks the button „show Details“', () => {
 
     });
 
-    then('the user should receive more details of this upcoming event', () => {
+    then('the event element should expand and show more information', () => {
 
     });
   });
 
-   test('User can collapse an event to hide its details', ({ given, when, then }) => {
-  //   let AppWrapper;
-     given('the user sees more details of an upcoming event', () => {
-  //     AppWrapper = await mount(<App />);
-  //     AppWrapper.update();
-  //   expect(AppWrapper.find('.event .event__Details')).toHaveLength(1);
-     });
+  test('User can collapse an event to hide its details', ({ given, and, when, then }) => {
+    given('app loaded', () => {
 
-     when('the user clicks outside the event box or on a close button', () => {
-  //     AppWrapper.find('.event .details-btn').at(0).simulate('click');
-     });
+    });
 
-     then('the user should return to the list of events with short description', () => {
-  //     expect(AppWrapper.find('.event .event__Details')).toHaveLength(0);
-     });
-   });
+    and('event element is expanded and shows details', () => {
+
+    });
+
+    when('the user clicks the „hide details“ button', () => {
+
+    });
+
+    then('the event element details should collapse', () => {
+
+    });
+  });
+
 });
