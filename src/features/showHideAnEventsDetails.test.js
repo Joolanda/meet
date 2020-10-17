@@ -89,7 +89,10 @@ defineFeature(feature, test => {
   test('User can collapse an event to hide its details', ({ given, when, then }) => {
     let AppWrapper;
     given('the user sees more details of an upcoming event', () => {
-    AppWrapper = mount(<App />);
+      AppWrapper = mount(<App />);
+      AppWrapper.update();
+      AppWrapper.find('.event .details-btn').at(0).simulate('click');
+    expect(AppWrapper.find('.event .event__Details')).toHaveLength(1);
     });
 
     when('the user clicks outside the event box or on a close button', () => {
