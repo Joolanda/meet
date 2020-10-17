@@ -1,19 +1,26 @@
+import React from 'react';
+import App from '../App';
 import { loadFeature, defineFeature } from 'jest-cucumber';
+import { mockData } from '../mock-data';
+import { mount } from 'enzyme';
+
 
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
 
 defineFeature(feature, test => {
   test('An event element is collapsed by default', ({ given, and, when, then }) => {
     given('the list of events has been loaded', () => {
-
+     
     });
-
+    let AppWrapper;
+  });
     and('app loaded', () => {
-
+      AppWrapper = mount(<App />);
     });
 
     when('the user did not click the „Show Details“ yet', () => {
-
+        AppWrapper.update();
+        expect(AppWrapper.find('showDetails')).toHaveLength(0);
     });
 
     then('the event elements are collapsed', () => {

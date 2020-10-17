@@ -5,7 +5,7 @@ const feature = loadFeature('./src/features/specifyNumberOfEvents.feature');
 defineFeature(feature, test => {
   test('When user hasn’t specified a number, "32" is the default number', ({ given, when, then }) => {
     given('the user sees his selected city with a textbox showing default amount of events', () => {
-
+    
     });
 
     when('user submits without changing the number in the “Show-Events” textbox', () => {
