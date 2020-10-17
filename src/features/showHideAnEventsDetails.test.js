@@ -11,10 +11,12 @@ const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
 
 defineFeature(feature, test => {
   test('An event element is collapsed by default', ({ given, and, when, then }) => {
-    given('the user has filtered events by city', () => {});
-    let AppWrapper;
-      AppWrapper.update();
-      expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
+     given('the user has filtered events by city', () => {
+
+    //  });
+    // let AppWrapper;
+    //   AppWrapper.update();
+    //   expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
     //CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
 
     //      then('the user should see the list of upcoming events', () => {
@@ -31,8 +33,10 @@ defineFeature(feature, test => {
     });
 
     when('user hasn’t clicked on a button of a specific event to show more details', () => {
-      // AppwWrapper.update();
-      // expect(AppWrapper.find('showDetails')).toHaveLength(0)
+      let AppWrapper;
+      AppWrapper = mount(<App />);
+      AppWrapper.update();
+      expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
     });
 
     then('the user should see a short description of each upcoming event by default', () => {
@@ -41,18 +45,26 @@ defineFeature(feature, test => {
   });
 
   test('User can expand an event to see its details', ({ given, and, when, then }) => {
-    let AppWrapper;
+    // let AppWrapper;
+    // AppWrapper = mount(<App />);
+
     given('the user sees a list of the upcoming events that take place', () => {
-      AppWrapper = mount(<App />);
-      expect(AppWrapper.find('.event .details-btn')).toHaveLength(1);
+
+      // AppWrapper.update();
+      // expect(AppWrapper.find('.event')).toHaveLength(mockData.events.length);
+      // AppWrapper = mount(<App />);
+      // expect(AppWrapper.find('.event .details-btn')).toHaveLength(1);
  
   
 
     });
 
     and('sees per event a details button', () => {
-      AppWrapper.update();
-      expect(AppWrapper.find('.event .details-btn')).toHaveLength(1);
+      // let AppWrapper;
+      // AppWrapper = mount(<App />);
+      //  AppWrapper.update();
+
+      //  expect(AppWrapper.find('.event .details-btn')).toHaveLength(1);
     });
 
     when('the user chooses an upcoming event', () => {
@@ -82,6 +94,6 @@ defineFeature(feature, test => {
     });
   });
 
-
+});
 
 
