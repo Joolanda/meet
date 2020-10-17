@@ -11,9 +11,11 @@ const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
 const locations = extractLocations(mockData);
 
 defineFeature(feature, test => {
+
+
   test('An event element is collapsed by default', ({ given, and, when, then }) => {
+    let AppWrapper;
      given('the user has filtered events by city', () => {
-      let AppWrapper;
       AppWrapper = mount(<App />);
       AppWrapper.update();
       expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
@@ -49,7 +51,7 @@ defineFeature(feature, test => {
   });
 
   test('User can expand an event to see its details', ({ given, and, when, then }) => {
-    // let AppWrapper;
+    let AppWrapper;
     // AppWrapper = mount(<App />);
 
     given('the user sees a list of the upcoming events that take place', () => {
@@ -85,9 +87,9 @@ defineFeature(feature, test => {
   });
 
   test('User can collapse an event to hide its details', ({ given, when, then }) => {
-
+    let AppWrapper;
     given('the user sees more details of an upcoming event', () => {
-
+    AppWrapper = mount(<App />);
     });
 
     when('the user clicks outside the event box or on a close button', () => {
@@ -95,7 +97,7 @@ defineFeature(feature, test => {
     });
 
     then('the user should return to the list of events with short description', () => {
-      expect(appWrapper.find('.event' .event__Details))
+      expect(AppWrapper.find('.event .event__Details')).toHaveLength(0);
     });
   });
 
