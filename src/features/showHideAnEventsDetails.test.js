@@ -20,7 +20,7 @@ defineFeature(feature, test => {
 
     when('the user did not click the „Show Details“ yet', () => {
         AppWrapper.update();
-        expect(AppWrapper.find('.event')).toHaveLength(mockData.Applength);
+        expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
     });
 
     then('the event elements are collapsed', () => {
@@ -29,19 +29,22 @@ defineFeature(feature, test => {
   });
 
   test('User can expand an event to see its details', ({ given, and, when, then }) => {
+    let AppWrapper;
     given('app loaded', () => {
-
+      AppWrapper = mount(<App />);
     });
 
     and('the list of events has been loaded', () => {
-
+      AppWrapper.update();
+      expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
     });
 
     when('the user clicks the button „show Details“', () => {
-
+      AppWrapper.find('.event .details-btn').at(0).simulate('click')
     });
 
     then('the event element should expand and show more information', () => {
+      expect(AppWrapper.find('.event .event__Details')).toHaveLength(1);
 
     });
   });
@@ -63,5 +66,4 @@ defineFeature(feature, test => {
 
     });
   });
-
 });
