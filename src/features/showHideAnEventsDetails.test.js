@@ -50,20 +50,22 @@ defineFeature(feature, test => {
   });
 
   test('User can collapse an event to hide its details', ({ given, and, when, then }) => {
+    let AppWrapper;
     given('app loaded', () => {
-
+      AppWrapper = mount(<App />);
     });
-
     and('event element is expanded and shows details', () => {
-
+      AppWrapper.update();
+      AppWrapper.find('.event .details-btn').at(0).simulate('click');
+      expect(AppWrapper.find('.event .event__Details')).toHaveLength(1);
     });
 
     when('the user clicks the „hide details“ button', () => {
-
+      AppWrapper.find('.event .details-btn').at(0).simulate('click');
     });
 
     then('the event element details should collapse', () => {
-
+      expect(AppWrapper.find('.event .event__Details')).toHaveLength(0);
     });
   });
 });
