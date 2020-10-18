@@ -1,8 +1,7 @@
 service: auth-server
 # app and org for use with dashboard.serverless.com
-#app: your-app-name
-#org: your-org-name
-
+app: meet
+org: Joolanda
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 # frameworkVersion: '2'
@@ -11,13 +10,15 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: us-east-1
-  timeout: 60 # optional, in seconds, default is 6
+  # timeout: 60 # optional, in seconds, default is 6
+  httpApi:
+    cors: true
   stage: dev
   environment:
     CLIENT_ID: ${file(config.json):CLIENT_ID}
     CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
     PROJECT_ID: ${file(config.json):PROJECT_ID}
-    CALENDAR_ID: ${file(config.json):CALENDAR_ID}"
+    CALENDAR_ID: ${file(config.json):CALENDAR_ID}
 functions:
   getAuthURL:
     handler: handler.getAuthURL
@@ -35,7 +36,7 @@ functions:
     handler: handler.getCalendarEvents # check if this handler is needed
     events:
       - http:
-        path: api/get-events/{access_token}
+        path: api/get-events/{access_token}/{max_results}
         method: get
  #      max_results: 32 
 
