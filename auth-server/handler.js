@@ -102,6 +102,16 @@ module.exports.getCalendarEvents = async (event) => {
 
   const access_token = decodeURIComponent(event.pathParameters.access_token);
 
+/**
+   * This checks if max_results exists using '&&' and if it does it converts it to an int using 'parseInt'.
+   * If max_results doesn't exist it will default to 32 using the 'OR' operator: '||'.
+   */
+ /*  const max_results =
+    (event.pathParameters.max_results &&
+      parseInt(event.pathParameters.max_results, 10)) ||
+    32; */
+
+
   oAuth2Client.setCredentials({ access_token });
 
     return new Promise((resolve, reject) => {
