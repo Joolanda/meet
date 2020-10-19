@@ -34,8 +34,9 @@ describe('show/hide an event details', () => {
     const eventDetails = await page.$('.event .event__Details');
     expect(eventDetails).toBeNull();
   });
-// feature 3
-describe('filter events by city', () => {
+});
+// feature 1
+describe('filter events by city', () => { 
   let browser;
   let page;
   beforeAll(async () => {
@@ -46,16 +47,24 @@ describe('filter events by city', () => {
     });
     page = await browser.newPage();
     await page.goto('http://localhost:3000/');
-    await page.waitF;orSelector('event');
+    await page.waitForSelector('.event');
   });
   afterAll(() => {
     browser.close();
   });
 
-  test('When user hasn’t searched for a city, show upcoming events from all cities'), async () => { });
-  test('User should see a list of suggestions when they search for a city'), async () => { });
-  test('User can select a city from the suggested list'), async () => { });
-
-
-
+  test('When user hasn’t searched for a city, show upcoming events from all cities', async () => { 
+    const eventSummary = await page.$('.event');
+    expect(eventSummary).toBeDefined();
+ }); 
+  test('User should see a list of suggestions when they search for a city', async () => { 
+    const eventSummary = await page.$('.suggestions li');
+    expect(eventSummary).toBeDefined();
+ });
+  test('User can select a city from the suggested list', async () => { 
+  const eventSummary = await page.$('.suggestions');
+  await page.type('.city', 'Berlin');
+ expect(eventSummary).toBeDefined();
+  });
 });
+
