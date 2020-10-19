@@ -38,7 +38,7 @@ functions:
       - http:
         path: api/get-events/{access_token}
         method: get
-       maxResults: 32
+        # maxResults: 32
 
 # you can overwrite defaults here
 #  stage: dev
