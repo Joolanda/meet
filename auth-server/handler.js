@@ -100,7 +100,7 @@ module.exports.getCalendarEvents = async (event) => {
       // calendar_id[0]
   );
 
-  const access_token = decodeURIComponent(event.pathParameters.access_token);
+  const access_token = decodeURIComponent(`${event.pathParameters.access_token}`);   
 
 /**
    * This checks if max_results exists using '&&' and if it does it converts it to an int using 'parseInt'.
