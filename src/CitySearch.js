@@ -41,13 +41,16 @@ class CitySearch extends Component {
           value={this.state.query}
           onChange={this.handleInputChanged}
         />
-        <ul className={
+        <ul 
+          className={
             this.state.showSuggestions ? 'suggestions showSuggestions' : 'display-none'
           }
         >
           {
            this.state.suggestions.map((suggestion) => (
-            <li key={suggestion} onClick={() => this.handleItemClicked(suggestion)}>
+            <li key={suggestion} 
+            onClick={() => this.handleItemClicked(suggestion)}
+            >
            {suggestion}
             </li>
             ))
