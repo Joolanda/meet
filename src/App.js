@@ -5,7 +5,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
-import { checkToken, getToken } from './api';
+//import { checkToken, getToken } from './api';
 class App extends Component {
 
 state = {
