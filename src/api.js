@@ -59,9 +59,9 @@ const getEvents = async (max_results = 32) => {
   if (token) {
     removeQuery();
     // YOUR_GET_EVENTS_API_ENDPOINT
-    // const getCalendarEvents = "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/";
-    //const url = `https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/${token}`; testing new endpoint:
-    const url = `https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/{access_token}/${token}`;
+    //testing new version of endpoint:
+    const url = `https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/${token}`;
+    //const url = `https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/{access_token}/${token}`;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
@@ -75,7 +75,6 @@ const getEvents = async (max_results = 32) => {
 
 
 // const getAccessToken Waar is deze functie gebleven?
-// old code : const accessToken = localStorage.getItem('access_token');
 const getAccessToken = async () => {
   const accessToken = await localStorage.getItem("access_token");
 //  google redirect user back to app with code which you can use
