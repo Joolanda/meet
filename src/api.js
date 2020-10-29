@@ -27,8 +27,7 @@ const checkToken = async (accessToken) => {
 };
     // some keys, check them later
     //"YOUR_SERVERLESS_GET_AUTH_URL_ENDPOINT"
-    // const getAuthURL = "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url";
-    //
+    // const getAuthURL = "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
     // const getToken = "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/token/";
     // YOUR_GET_EVENTS_API_ENDPOINT
     // const getCalendarEvents = "https://jvsv8khfpd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/";
