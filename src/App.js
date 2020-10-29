@@ -14,12 +14,12 @@ state = {
   numberOfEvents: 32,
   locations: [],
 };
-componentDidMount() {
+async componentDidMount() {
   this.mounted = true;
-  getEvents().then((response) => {
+  await getEvents().then((response) => {
     if(this.mounted) {
     this.setState({ 
-      events: response.events, 
+      events: response.events,
       locations: response.locations,
      });
     }
