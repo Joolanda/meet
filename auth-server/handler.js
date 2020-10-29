@@ -52,7 +52,7 @@ module.exports.getAccessToken = async (event) => {
       redirect_uris[0]
     );
      // Get authorization code from the URL query
-  const code = decodeURIComponent(`${event.pathParameters.code}`);
+  const code = decodeURIComponent(event.pathParameters.code);
   
      return new Promise((resolve, reject) => {
        /**
@@ -98,8 +98,9 @@ module.exports.getCalendarEvents = async (event) => {
       redirect_uris[0]
       // calendar_id[0]
   );
-
-  const access_token = decodeURIComponent(`${event.pathParameters.access_token}`);   
+/* Here adding the ${} is redundant because you only need this syntax when writing strings and JS variables in between,
+but here it's only a JS variable  */
+  const access_token = decodeURIComponent(event.pathParameters.access_token);   
 
 /**
    * This checks if max_results exists using '&&' and if it does it converts it to an int using 'parseInt'.
