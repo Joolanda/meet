@@ -153,5 +153,3 @@ but here it's only a JS variable  */
       };
     });
    };
-  
-
