@@ -35,9 +35,9 @@ functions:
     handler: handler.getCalendarEvents # check if this handler is needed
     events:
       - http:
-        path: api/get-events/{access_token}
-      # path: api/get-events/{access_token}/{max_results}
-        method: get
+          path: api/get-events/{access_token}
+          method: get
+        # path: api/get-events/{access_token}/{max_results}
         # maxResults: 32
 
 # you can overwrite defaults here
