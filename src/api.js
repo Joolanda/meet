@@ -56,7 +56,7 @@ const getEvents = async (max_results = 32) => {
   if (! navigator.online) {
     const { events } = await localStorage.getItem("lastEvents");
     NProgress.done();
-    return { events: JSON.parse(events), location: extractLocations(events) };
+    return { events: JSON.parse(events), locations: extractLocations(events) };
   }
 
   const token = await getAccessToken();
