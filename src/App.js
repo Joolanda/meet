@@ -68,7 +68,7 @@ updateEvents = (location, eventCount) => {
       return this.setState({
         events: events,
         numberOfEvents: eventCount,
-        locations: response.locations,
+        locations: response.locations, // check this line of code
       });
     });
   }

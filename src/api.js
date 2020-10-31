@@ -40,8 +40,8 @@ const checkToken = async (accessToken) => {
  * The Set will remove all duplicates from the array.
  */
 
-const extractLocations = (events) => {
-  var extractLocations = events.map((event) => event.location);
+ const extractLocations = (events) => {
+  var extractLocations = events.map((event) => event.location); // local var with same label
   var locations = [...new Set(extractLocations)];
   return locations;
 };
