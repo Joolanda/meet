@@ -81,8 +81,8 @@ updateEvents = (location, eventCount) => {
         <h1> Meet App</h1>
         <h3>Choose your nearest city</h3>
         <CitySearch updateEvents={this.updateEvents} locations={locations} />
-        <EventList events={events} />
         <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents= {numberOfEvents} />
+        <EventList events={events} />
       </div>
     );
   }
