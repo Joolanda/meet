@@ -5,7 +5,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
-//import { checkToken, getToken } from './api';
+import { checkToken, getToken } from './api';
 class App extends Component {
 
 state = {
@@ -33,7 +33,7 @@ getData = () => {
   const { locations, events } = this.state;
   const data = locations.map((location) => {
     const number = events.filter((event) =>event.location ===location).length;
-    const city = location.split(' ').shift();
+    const city = location.split(" ").shift();
     return { city, number };
   });
   return data;
