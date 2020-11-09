@@ -39,12 +39,14 @@ class InfoAlert extends Alert {
       fontStyle: 'italic',
     };
   }
-}
+} */
 
 class ErrorAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'red';
+    
   }
-} */
-export { InfoAlert };
+}
+
+export { InfoAlert, ErrorAlert };
