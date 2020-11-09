@@ -53,8 +53,8 @@ const getEvents = async (max_results = 32) => {
     NProgress.done();
     return { events: mockData, locations: extractLocations(mockData) };
   }
-  if (! navigator.online) {
-    const { events } = await localStorage.getItem("lastEvents");
+  if (!navigator.online) {
+    const { events } = await localStorage.getItem("");
     NProgress.done();
     return { events: JSON.parse(events), locations: extractLocations(events) };
   }

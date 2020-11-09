@@ -6,7 +6,6 @@ class Event extends Component {
   };
 
   render() {
- 
     const { showDetails } = this.state;
     return (
     <div className='event'>
