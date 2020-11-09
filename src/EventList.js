@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Event from './Event';
 
-const EventList = ({ events }) => {
+/* const EventList = ({ events }) => {
   if (!events) return null;
   return (
     <ul className="EventList">
@@ -12,9 +12,9 @@ const EventList = ({ events }) => {
       ))}
     </ul>
   );
-};
+}; */
 
-/* class EventList extends Component {
+class EventList extends Component {
 
   render() {
     return (
@@ -26,7 +26,7 @@ const EventList = ({ events }) => {
       </ul>
     );
   }
-} */
+}
 
 export default EventList;
 
