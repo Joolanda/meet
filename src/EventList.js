@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 import Event from './Event';
 
-class EventList extends Component {
+const EventList = ({ events }) => {
+  if (!events) return null;
+  return (
+    <ul className="EventList">
+      {events.map((event) => (
+        <li key={event.id}>
+          <Event event={event} />
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+/* class EventList extends Component {
 
   render() {
     return (
@@ -13,7 +26,7 @@ class EventList extends Component {
       </ul>
     );
   }
-}
+} */
 
 export default EventList;
 
