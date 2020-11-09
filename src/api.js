@@ -60,7 +60,7 @@ const getEvents = async (max_results = 32) => {
   }
 
   const token = await getAccessToken();
-   console.log('getEvents token: ', token)
+  // console.log('getEvents token: ', token)
   if (token) {
     removeQuery();
     // YOUR_GET_EVENTS_API_ENDPOINT
