@@ -46,7 +46,7 @@ module.exports.getAuthURL = async () => {
 
 module.exports.getAccessToken = async (event) => {
   // The values used to instantiate the OAuthClient are at the top of the file
-    const oAuth2Client = new google.auth.OAuth2(
+  const oAuth2Client = new google.auth.OAuth2(
       client_id,
       client_secret,
       redirect_uris[0]
@@ -72,7 +72,6 @@ module.exports.getAccessToken = async (event) => {
          return {
            statusCode: 200,
            headers: {
-            ...token.config.headers,
             "Access-Control-Allow-Origin": "*",
           },
            body: JSON.stringify(token),
