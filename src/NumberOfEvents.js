@@ -16,7 +16,7 @@ class NumberOfEvents extends Component {
         infoText: 'Select number of events from 1 to 32'
       });
     } else {
-      this.setSate({
+      this.setState({
         infoText: "",
       });
     }
