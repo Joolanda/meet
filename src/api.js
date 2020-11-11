@@ -53,11 +53,17 @@ const getEvents = async (max_results = 32) => {
     NProgress.done();
     return { events: mockData, locations: extractLocations(mockData) };
   }
-  if (!navigator.onLine) {
+    if (!navigator.onLiine) {
+      const events = localStorage.getItem("lastevents");
+      NProgress.done();
+      return { events: JSON.parse(events).events,
+      locations: extractLocations(JSON.parse(events).events) };
+    }
+ /*  if (!navigator.onLine) {
     const { events } = await localStorage.getItem("lastEvents");
     NProgress.done();
     return { events: JSON.parse(events), locations: extractLocations(events) };
-  }
+  } */
 
   const token = await getAccessToken();
   // console.log('getEvents token: ', token)
