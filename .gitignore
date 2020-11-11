@@ -29,9 +29,4 @@ credentials.json
 config.json
 test.json
 
-# package directories
-node_modules
-jspm_packages
-
-# Serverless directories
-.serverless
+ 
