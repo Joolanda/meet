@@ -47,6 +47,7 @@ const checkToken = async (accessToken) => {
 };
 
 const getEvents = async (max_results = 32) => {
+  //if (!events) return []
   NProgress.start();
   // console.log('getEvents token: ', token)
   if (window.location.href.startsWith("http://localhost")) {
