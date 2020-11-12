@@ -19,7 +19,7 @@ state = {
 };
 
 warningAlert = () => {
-  if (window.Navigator.onLine === false) {
+  if (navigator.onLine === false) {
     this.setState({
       offlineText: "You are currently using this app offline, so be aware that the displayed list may not be updated."
     });
