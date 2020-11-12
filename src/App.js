@@ -5,6 +5,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
+import { WarningAlert } from './Alert';
 import { checkToken, getToken } from './api';
 class App extends Component {
 
@@ -12,8 +13,21 @@ state = {
   events: [],
   currentLocation: "all",
   numberOfEvents: 32,
-  locations: [],
+  offlineText: "",
+  locations: []
 };
+
+warningAlert = () => {
+  if (navigator.onLine === false) {
+    this.setState({
+      offlineText: "You are currently using this app offline, so be aware that the displayed list may not be updated."
+    });
+  } else {
+    this.setState({
+      offlineText: "",
+    });
+  }
+}
 async componentDidMount() {
   this.mounted = true;
   await getEvents().then((response) => {
@@ -25,7 +39,7 @@ async componentDidMount() {
     }
   });
 }
-componentWillUnmount(){
+componentWillUnmount() {
   this.mounted = false;
 }
 // retrieving data cities
