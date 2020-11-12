@@ -7,6 +7,7 @@ import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
 import { WarningAlert } from './Alert';
 import { checkToken, getToken } from './api';
+
 class App extends Component {
 
 state = {
@@ -18,7 +19,7 @@ state = {
 };
 
 warningAlert = () => {
-  if (navigator.onLine === false) {
+  if (window.Navigator.onLine === false) {
     this.setState({
       offlineText: "You are currently using this app offline, so be aware that the displayed list may not be updated."
     });
