@@ -5,7 +5,6 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
-
 import { WarningAlert } from './Alert';
 import { checkToken, getToken } from './api';
 
@@ -53,7 +52,8 @@ getData = () => {
   return data;
 };
 
-updateEvents = (location) => {
+// code before task 4.5
+/* updateEvents = (location) => {
   getEvents().then((events) => {
     const locationEvents = (location === 'all') ?
       events :
@@ -62,7 +62,8 @@ updateEvents = (location) => {
       events: locationEvents
     });
   });
-}
+} */
+
 
 // task part 3: you'll need to refactor the UpdateEvents fct
 // to take 2 parameters "location" and "eventCount" and in the state 32 number of events
@@ -97,10 +98,10 @@ updateEvents = (location) => {
       });
     });
   }
-}
- */
+} */
+
   render() {
-    const { locations, numberOfEvents, events } = this.state
+    const { numberOfEvents } = this.state
     return (
       < div className="App">
         <h1> Meet App</h1>
