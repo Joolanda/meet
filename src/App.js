@@ -56,37 +56,15 @@ getData = () => {
 
 // task part 3: you'll need to refactor the UpdateEvents fct
 // to take 2 parameters "location" and "eventCount" and in the state 32 number of events
-updateEvents = (location, eventCount) => {
-  const { currentLocation, numberOfEvents } = this.state;
-  if (location) {
-    getEvents().then((response) => {
-      const locationEvents =
-        location === "all"
-          ? response.events
-          : response.events.filter((event) => event.location === location);
-      const events = locationEvents.slice(0, numberOfEvents);
-      return this.setState({
-        events: events,
-        currentLocation: location,
-        locations: response.locations,
-      });
+updateEvents = (location) => {
+  getEvents().then((events) => {
+    const locationEvents = (location === 'all') ?
+      events :
+      events.filter((event) => event.location === location);
+    this.setState({
+      events: locationEvents
     });
-  } else {
-    getEvents().then((response) => {
-      const locationEvents =
-        currentLocation === "all"
-          ? response.events
-          : response.events.filter(
-              (event) => event.location === currentLocation
-            );
-      const events = locationEvents.slice(0, eventCount);
-      return this.setState({
-        events: events,
-        numberOfEvents: eventCount,
-        locations: response.locations, // check this line of code
-      });
-    });
-  }
+  });
 }
 
   render() {
