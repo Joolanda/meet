@@ -52,19 +52,8 @@ const getEvents = async (max_results = 32) => {
   // console.log('getEvents token: ', token)
   if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
-    return { events: mockData, locations: extractLocations(mockData) };
+    return mockData;
   }
-    if (!navigator.onLine) {
-      const events = localStorage.getItem("lastEvents");
-      NProgress.done();
-      return { events: JSON.parse(events).events,
-      locations: extractLocations(JSON.parse(events).events) };
-    }
- /*  if (!navigator.onLine) {
-    const { events } = await localStorage.getItem("lastEvents");
-    NProgress.done();
-    return { events: JSON.parse(events), locations: extractLocations(events) };
-  } */
 
   const token = await getAccessToken();
   // console.log('getEvents token: ', token)
@@ -81,14 +70,14 @@ const getEvents = async (max_results = 32) => {
       localStorage.setItem("locations", JSON.stringify(locations));
     }
     NProgress.done();
-    return { events: result.data.events, locations };
+    return result.data.events;
   }
 };
 
 
 // const getAccessToken Waar is deze functie gebleven?
-const getAccessToken = async () => {
-  const accessToken = await localStorage.getItem("access_token");
+export const getAccessToken = async () => {
+  const accessToken = localStorage.getItem("access_token");
 //  google redirect user back to app with code which you can use
 // to retrieve the access tocken from Lambda fcts on auth server.
 const tokenCheck = accessToken && (await checkToken(accessToken));
@@ -129,5 +118,4 @@ const getToken = async (code) => {
   return access_token;
 };
 
-
-export { getEvents, getAccessToken, extractLocations, getToken, checkToken };
+export { getEvents, extractLocations, getToken, checkToken } 

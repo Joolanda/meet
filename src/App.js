@@ -5,6 +5,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
+import { extractLocations } from './api';
 import { WarningAlert } from './Alert';
 import { checkToken, getToken } from './api';
 
@@ -29,11 +30,12 @@ warningAlert = () => {
     });
   }
 }
+
 componentDidMount() {
   this.mounted = true;
-  getEvents().then((response) => {
+  getEvents().then((events) => {
     if(this.mounted) {
-    this.setState({ events: response.events, locations: response.locations });
+    this.setState({ events, locations: extractLocations(events) });
     }
   });
 }
@@ -52,8 +54,9 @@ getData = () => {
   return data;
 };
 
-// code before task 4.5
-/* updateEvents = (location) => {
+
+// before refactoring updateEvents
+updateEvents = (location) => {
   getEvents().then((events) => {
     const locationEvents = (location === 'all') ?
       events :
@@ -62,8 +65,7 @@ getData = () => {
       events: locationEvents
     });
   });
-} */
-
+}
 
 // task part 3: you'll need to refactor the UpdateEvents fct
 // to take 2 parameters "location" and "eventCount" and in the state 32 number of events
@@ -101,15 +103,15 @@ getData = () => {
 } */
 
   render() {
-    const { numberOfEvents } = this.state
+    const { locations, numberOfEvents, events } = this.state
     return (
       < div className="App">
         <h1> Meet App</h1>
         <h3>Choose your nearest city</h3>
-        <CitySearch updateEvents={this.updateEvents} locations={this.state.locations} />
+        <CitySearch locations={locations} updateEvents={this.updateEvents} />
         <WarningAlert text={this.state.offlineText} />
         <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents= {numberOfEvents} />
-        <EventList events={this.state.events} />
+        <EventList events={events} />
       </div>
     );
   }
