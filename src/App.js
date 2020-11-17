@@ -51,7 +51,7 @@ getData = () => {
   const { locations, events } = this.state;
   const data = locations.map((location) => {
     const number = events.filter((event) =>event.location ===location).length;
-    const city = location.split(" ").shift();
+    const city = location.split(' ').shift();
     return { city, number };
   });
   return data;
@@ -93,7 +93,7 @@ updateEvents = (location, eventCount) => {
 }
 
   render() {
-    const { locations, numberOfEvents, events, data } = this.state
+    const { locations, numberOfEvents, events } = this.state
     return (
       < div className="App">
         <h1> Meet App</h1>
@@ -110,10 +110,10 @@ updateEvents = (location, eventCount) => {
           }}
           >
           <CartesianGrid />
-          <XAxis type="number" dataKey="x" name="stature" unit="cm" />
-          <YAxis type="number" dataKey="y" name="weight" unit="kg" />
+          <XAxis type="category" dataKey="city" name="city" />
+          <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter name="A school" data={data} fill="#8884d8" />
+          <Scatter data={this.getData} fill="#8884d8" />
         </ScatterChart>
         <EventList events={events} />
       </div>
