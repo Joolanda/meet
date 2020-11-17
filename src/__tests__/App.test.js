@@ -67,7 +67,7 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
  }); 
 });
-// older version of the integration tests
+// older version of tests
 /* test('get list of events after the user selects a city', async () => {
   const AppWrapper = mount(<App />);
   AppWrapper.instance().updateEvents = jest.fn();
