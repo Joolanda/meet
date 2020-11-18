@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-import { getDefaultNormalizer } from '@testing-library/react';
+//import { getDefaultNormalizer } from '@testing-library/react';
 
 const EventGenre = ({ events }) => {
-  const data = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
-  ];
+  const [data, setData] = useState([]);
+  useEffect(() => { setData(() => getData()); }, [events]);
+
 
 // retrieving data genres 4.9
   const getData = () => {
-    const { genre } = this.state;
     const genres = ['React', 'JavaScript','Node', 'jQuery', 'AngularJS'];
     const data = genres.map((genre) => {
       const value = events.filter(({summary}) => summary.split(' ').includes(genre)).length;
@@ -36,7 +32,8 @@ const EventGenre = ({ events }) => {
        label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
      >
        {
-          	data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+          	data.map((entry, index) => (<Cell key={`cell-$(index}`} fill={COLORS[index % COLORS.length]} name={entry.name}/>
+           ))
           }
        </Pie>
      </PieChart>
