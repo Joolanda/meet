@@ -11,7 +11,7 @@ const EventGenre = ({ events }) => {
   ];
 
 // retrieving data genres 4.9
-  getData = () => {
+  const getData = () => {
     const { genre } = this.state;
     const genres = ['React', 'JavaScript','Node', 'jQuery', 'AngularJS'];
     const data = genres.map((genre) => {
@@ -20,7 +20,7 @@ const EventGenre = ({ events }) => {
     });
     return data;
   };
-
+ const COLORS = ['#003f5c', '#ffa600','#ff6361','#58508d', '#bc5090'];
 
   return (
     <ResponsiveContainer height={400} >
@@ -35,21 +35,13 @@ const EventGenre = ({ events }) => {
        dataKey="value"
        label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
      >
+       {
+          	data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+          }
        </Pie>
      </PieChart>
     </ResponsiveContainer> 
   );
 }
-};
-export default EventGenre
 
-// retrieving data voorbeeld
-/* getData = () => {
-  const { locations, events } = this.state;
-  const data = locations.map((location) => {
-    const number = events.filter((event) =>event.location ===location).length;
-    const city = location.split(' ').shift();
-    return { city, number };
-  });
-  return data;
-}; */
+export default EventGenre;
