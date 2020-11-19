@@ -123,6 +123,7 @@ render() {
           </ResponsiveContainer>
         </div>  
         <EventList events={events} />
+        <WarningAlert text={this.state.offlineText} />
       </div>
     );
   }
