@@ -8,7 +8,7 @@ import { getEvents } from './api';
 import { WarningAlert } from './Alert';
 import { checkToken, getToken } from './api';
 import {
-  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer 
+  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
 } from 'recharts';
 import EventGenre from './EventGenre';
 
@@ -117,7 +117,8 @@ render() {
                 name="number of events"
               />
               <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-              <Scatter data={this.getData()} fill="#8884d8" />
+              <Legend verticalAlign="bottom" height={36} />
+              <Scatter name=": number of events per city" data={this.getData()} fill="#bc5090" />
             </ScatterChart>
           </ResponsiveContainer>
         </div>  
