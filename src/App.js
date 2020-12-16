@@ -97,8 +97,9 @@ render() {
   const { locations, numberOfEvents, events } = this.state;
   return (
     <div className="App">
-      <h1>Meet App</h1>
-      <h4>Improve your programming skills and connect with other Web Dev's. Choose your nearest city for upcoming events. Let's meet up!</h4>
+      <h1 className="App-title">Meet App</h1>
+      <h4>Improve your programming skills and connect with other Web Developers.</h4> 
+      <h4>Choose your nearest city for upcoming events and let's meet up!</h4>
        <CitySearch updateEvents={this.updateEvents} locations={locations} />
        <NumberOfEvents
           updateEvents={this.updateEvents}

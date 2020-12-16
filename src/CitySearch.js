@@ -52,6 +52,7 @@ class CitySearch extends Component {
           value={this.state.query}
           onChange={this.handleInputChanged}
           onFocus={() => { this.setState({ showSuggestions: true }) }}
+          placeholder='London'
         />
         <ul 
           className={
