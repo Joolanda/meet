@@ -23,13 +23,13 @@ state = {
 };
 
 warningAlert = () => {
-  if (navigator.onLine === false) {
+  if (!navigator.onLine) {
     this.setState({
       offlineText: "You are currently using this app offline, so be aware that the displayed list may not be updated."
     });
   } else {
     this.setState({
-      offlineText: "",
+      offlineText: ""
     });
   }
 }
@@ -39,7 +39,7 @@ async componentDidMount() {
     if(this.mounted) {
     this.setState({ 
       events: response.events,
-      locations: response.locations,
+      locations: response.locations
      });
     }
   });
@@ -51,9 +51,9 @@ componentWillUnmount() {
 getData = () => {
   const { locations, events } = this.state;
   const data = locations.map((location) => {
-    const number = events.filter((event) =>event.location ===location).length;
+    const number = events.filter((event) => event.location ===location).length;
     const city = location.split(' ').shift();
-    return { city, number };
+    return { city, number};
   });
   return data;
 };
@@ -98,7 +98,7 @@ render() {
   return (
     <div className="App">
       <h1>Meet App</h1>
-      <h4>Choose your nearest city</h4>
+      <h4>Improve your programming skills and connect with other Web Dev's. Choose your nearest city for upcoming events. Let's meet up!</h4>
        <CitySearch updateEvents={this.updateEvents} locations={locations} />
        <NumberOfEvents
           updateEvents={this.updateEvents}
@@ -118,7 +118,7 @@ render() {
               />
               <Tooltip cursor={{ strokeDasharray: "3 3" }} />
               <Legend verticalAlign="bottom" height={36} />
-              <Scatter name=": number of events per city" data={this.getData()} fill="#bc5090" />
+              <Scatter name=" number of events per city" data={this.getData()} fill="#bc5090" />
             </ScatterChart>
           </ResponsiveContainer>
         </div>  
