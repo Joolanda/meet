@@ -4,6 +4,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 const EventGenre = ({ events }) => {
   const [data, setData] = useState([]);
+  // eslint-disable-next-line
   useEffect(() => { setData(() => getData()); }, [events]);
 
 
