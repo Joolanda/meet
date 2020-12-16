@@ -29,7 +29,7 @@ warningAlert = () => {
     });
   } else {
     this.setState({
-      offlineText: ""
+      offlineText: "",
     });
   }
 }
