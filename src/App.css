@@ -161,7 +161,7 @@ input[type="number"] {
   margin:1rem;
 }
 /* google styling of btn icon text */
-.google-btn {
+/* .google-btn {
   width: 184px;
   height: 42px;
   margin: 1rem;
@@ -198,7 +198,7 @@ input[type="number"] {
   font-size: 14px;
   letter-spacing: 0.2px;
   font-family: "Roboto";
-}
+} */
 /* end of google styling of btn icon text */
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
