@@ -10,6 +10,7 @@
     "atatus-spa": "4.2.1",
     "axios": "0.20.0",
     "moment": "2.29.1",
+    "node": "15.4.0",
     "nprogress": "0.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
