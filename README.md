@@ -12,8 +12,9 @@ For this project I was using a test driven development(TDD - writing tests first
 
 Technologies used: 
 
-## Key features
+## Features & Requirements
 
+#### key features 
 - Allows users to filter events by city
 - Users can show and hide event details
 - Users can specify the number of events they see displayed
@@ -21,7 +22,7 @@ Technologies used:
 - Add an app shortcut to the homescreen
 - View a chart showing the number of upcoming events by city
 
-## Userstories and Scenario's 
+#### Userstories and Scenario's 
 For more information about userstories, see portfolio (currently working on this to showcase)
 
 ## Technologies
