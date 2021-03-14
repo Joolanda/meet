@@ -8,7 +8,23 @@ Meet application is a progressive web application (by create-react-app) that use
 
 See the **hosted project** [here](https://joolanda.github.io/meet/). <br />
 
-For this project I was using a test driven development(TDD )approach with Enzyme and Jest.
+For this project I was using a test driven development(TDD - writing tests first, code later) approach with Enzyme and Jest.
 Translated user stories into scenarios for unit testing, acceptance testing, and end-to-end testing
 
-I am currently updating this READMe file - there will be more filling very soon!
+Technologies used: 
+
+## Key features
+
+- Allows users to filter events by city
+- Users can show and hide event details
+- Users can specify the number of events they see displayed
+- Allows users to use the app when offline
+- Add an app shortcut to the homescreen
+- View a chart showing the number of upcoming events by city
+
+
+For more information about userstories, see portfolio (currently working on this content)
+## Userstories and Scenario's 
+f.e. key feature x y or z:
+
+## Dependencies
