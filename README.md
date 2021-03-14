@@ -8,9 +8,7 @@ Meet application is a progressive web application (by create-react-app) that use
 
 See the **hosted project** [here](https://joolanda.github.io/meet/). <br />
 
-For this project I was using a test driven development(TDD - writing tests first, code later) approach with Enzyme and Jest. Translated userstories into scenarios for unit testing, acceptance testing, and end-to-end testing.
-
-Technologies used: 
+For this project I was using a test driven development(TDD - writing tests first, code later) approach with Enzyme and Jest. Translated userstories into scenarios for Unit testing, Acceptance testing, and End-to-End testing.
 
 ## Features & Requirements
 
