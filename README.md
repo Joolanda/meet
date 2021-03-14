@@ -1,6 +1,6 @@
 # Meet App
 
-![Meet App](src/img/meet.PNG)
+![Meet App](src/img/meet.png)
 
 ## About
 
